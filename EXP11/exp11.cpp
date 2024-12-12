@@ -12,6 +12,6 @@ struct Person{
 
 int main(){
     vector<Person> v;
-    v.insert(new Person("a",10));
+    v.push_back(Person("a",10));
     return 0;
 }

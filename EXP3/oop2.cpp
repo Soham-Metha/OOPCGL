@@ -39,7 +39,7 @@ class StudentDBHandler
 {
     public:
     friend db;
-    db d;
+    db *d;
     static int Rollno;
     StudentDBHandler();
     ~StudentDBHandler();
@@ -47,28 +47,22 @@ class StudentDBHandler
         return StudentDBHandler::Rollno++;
     }
     StudentDBHandler(const StudentDBHandler& s){
-        this->d.Name = s.d.Name;
-        this->d.Class = s.d.Class;
-        this->d.Division = s.d.Division;
-        this->d.Address = s.d.Address;
-        this->d.Bloodg = s.d.Bloodg;
-        this->d.license = s.d.license;
-        this->Rollno = s.Rollno;
-        this->d.PhNo = s.d.PhNo;
-        this->d.DoB = s.d.DoB;
+        this->d = s.d;
     }
 };
 int StudentDBHandler::Rollno=1;
 StudentDBHandler::StudentDBHandler()
 {
-    d.getInfo();
-    d.Rno=getRollNo();
+    d = new db();
+    d->getInfo();
+    d->Rno=getRollNo();
 }
 
 StudentDBHandler::~StudentDBHandler()
 {
     cout<<"Object Destroyed\nObject Data was : \n";
-    d.dispInfo();
+    d->dispInfo();
+    delete d;
 }
 
 int main(){

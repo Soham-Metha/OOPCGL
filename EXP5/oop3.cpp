@@ -11,10 +11,8 @@ class Publication {
         cin>>price;
     }
     void dispInfo(){
-        cout<<"\033[44m";
         cout<<"\nTitle : "<<title;
         cout<<"\nPrice : "<<price;
-        cout<<"\n\033[0m";
     }
 };
 class Book : public Publication {
@@ -28,9 +26,7 @@ class Book : public Publication {
     }
     void dispInfo(){
         Publication::dispInfo();
-        cout<<"\033[44m";
         cout<<"page count : "<<pageC;
-        cout<<"\n\033[0m";
     }
 };
 class Tape : public Publication {
@@ -44,9 +40,7 @@ class Tape : public Publication {
     }
     void dispInfo(){
         Publication::dispInfo();
-        cout<<"\033[44m";
         cout<<"play time : "<<playingTime;
-        cout<<"\n\033[0m";
     }
 };
 
@@ -59,7 +53,7 @@ int main(){
         t.getInfo();
         b.dispInfo();
         t.dispInfo();
-        if (b.price==0 || t.price==0)
+        if (b.price<0 || t.price<0)
         {
             throw 0;
         }
@@ -67,7 +61,7 @@ int main(){
     }
     catch(int i)
     {
-        cout<<"Error!Price cant be 0 "<<endl;
+        cout<<"Error!Price cant be negative "<<endl;
     }
     
     return 0;

@@ -7,23 +7,23 @@ template<typename T> struct Vector3{
     Vector3(T a,T b,T c):x(a),y(b),z(c){};
 
     Vector3<T> operator*(float f) {
-        float a = x*f;
-        float b = y*f;
-        float c = z*f;
+        T a = x*f;
+        T b = y*f;
+        T c = z*f;
         return Vector3<T>( a , b , c );
     }
 
     Vector3<T> operator+(Vector3<T> other) {
-        float a = x+other.x;
-        float b = y+other.y;
-        float c = z+other.z;
+        T a = x+other.x;
+        T b = y+other.y;
+        T c = z+other.z;
         return Vector3<T>( a , b , c );
     }
 
     Vector3<T> operator-(Vector3<T> other) {
-        float a = x-other.x;
-        float b = y-other.y;
-        float c = z-other.z;
+        T a = x-other.x;
+        T b = y-other.y;
+        T c = z-other.z;
         return Vector3<T>( a , b , c );
     }
 };
